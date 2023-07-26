@@ -14,7 +14,7 @@ app.use(express.urlencoded({
 
 require('./app/routes/videos')(app)
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT
 db.mongoose
     .connect(db.url)
     .then(() => {
