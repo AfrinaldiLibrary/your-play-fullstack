@@ -38,13 +38,16 @@ const DetailPage: React.FC = () => {
         event.preventDefault()
 
         if (newComment.username && newComment.comment) {
-            fetch(`http://localhost:3000/api/videos/comment/${id}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            fetch(
+                `https://sleepy-pink-agouti.cyclic.cloud/api/videos/comment/${id}`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newComment),
                 },
-                body: JSON.stringify(newComment),
-            })
+            )
                 .then((response) => response.json())
                 .then(() => {
                     setNewComment({ username: '', comment: '' })
@@ -67,12 +70,14 @@ const DetailPage: React.FC = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/videos/${id}`)
+        fetch(`https://sleepy-pink-agouti.cyclic.cloud/api/videos/${id}`)
             .then((response) => response.json())
             .then((data) => setVideoDetail(data.data))
             .catch((error) => console.error('Error fetching data:', error))
 
-        fetch(`http://localhost:3000/api/videos/comment/${id}`)
+        fetch(
+            `https://sleepy-pink-agouti.cyclic.cloud/api/videos/comment/${id}`,
+        )
             .then((response) => response.json())
             .then((data) => setComments(data.data))
             .catch((error) => console.error('Error fetching comments:', error))

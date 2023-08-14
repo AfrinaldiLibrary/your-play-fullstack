@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     const [videos, setVideos] = useState<Video[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/videos/')
+        fetch('https://sleepy-pink-agouti.cyclic.cloud/api/videos/')
             .then((response) => response.json())
             .then((data) => setVideos(data.data))
             .catch((error) => console.error('Error fetching data:', error))
