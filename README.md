@@ -3,6 +3,15 @@
 
 Apps like tokopedia play
 
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/see_Website-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://afrinaldi-gigih.vercel.app/)
+
+## Features
+
+- YouTube Embed
+- Add comment
+- List related product
+
 ## API Reference
 
 #### Get all videos
@@ -71,3 +80,44 @@ Run project
 ```bash
 1. nodemon index.js
 ```
+
+
+## Schema Database
+
+#### Video
+
+- _id: Unique identifier for the video.
+    - Type: String
+    - Required: true
+- url_img: URL to the video's image.
+    - Type: String
+    - Required: true
+- product_list: Array of products associated with the video.
+    - Type: Array of Product documents (defined by ProductSchema)
+- comment_list: Array of comments associated with the video.
+    - Type: Array of Comment documents (defined by CommentSchema)
+
+#### ProductSchema
+
+- productID: Unique identifier for the product.
+    - Type: mongoose.Types.ObjectId
+    - Required: true
+- linkProduct: URL to the product's page.
+    - Type: String
+    - Required: true
+- title: Title of the product.
+    - Type: String
+    - Required: true
+- price: Price of the product.
+    - Type: Number
+    - Required: true
+
+#### CommentSchema
+
+- username: Username of the commenter.
+    - Type: String
+    - Required: true
+- comment: The actual comment content.
+    - Type: String
+    - Required: true
+- timestamps: Automatically generated timestamps for comment creation and modification.
